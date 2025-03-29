@@ -47,7 +47,9 @@ def main():
     # start Spark application and get Spark session, logger and config
     spark, log, config = start_spark(
         app_name='my_etl_job',
-        files=['configs/etl_config.json'])
+        files=['configs/etl_config.json'],
+        spark_config={"steps_per_floor": 21}
+    )
 
     # log that main ETL job is starting
     log.warn('etl_job is up-and-running')
@@ -59,6 +61,7 @@ def main():
 
     # log the success and terminate Spark application
     log.warn('test_etl_job is finished')
+    print('end')
     spark.stop()
     return None
 

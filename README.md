@@ -75,7 +75,7 @@ Assuming that the `$SPARK_HOME` environment variable points to your local Spark 
 
 ```bash
 $SPARK_HOME/bin/spark-submit \
---master local[*] \
+--master `local[*]` \
 --packages 'com.somesparkjar.dependency:1.0.0' \
 --py-files packages.zip \
 --files configs/etl_config.json \
@@ -178,13 +178,7 @@ We use [pipenv](https://docs.pipenv.org) for managing project dependencies and P
 To get started with Pipenv, first of all download it - assuming that there is a global version of Python available on your system and on the PATH, then this can be achieved by running the following command,
 
 ```bash
-pip3 install pipenv
-```
-
-Pipenv is also available to install from many non-Python package managers. For example, on OS X it can be installed using the [Homebrew](https://brew.sh) package manager, with the following terminal command,
-
-```bash
-brew install pipenv
+pip install pipenv
 ```
 
 For more information, including advanced configuration options, see the [official pipenv documentation](https://docs.pipenv.org).
