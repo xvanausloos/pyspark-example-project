@@ -229,3 +229,13 @@ DEBUG=1
 ```
 
 Will enable access to these variables within any Python program -e.g. via a call to `os.environ['SPARK_HOME']`. Note, that if any security credentials are placed here, then this file **must** be removed from source control - i.e. add `.env` to the `.gitignore` file to prevent potential security risks.
+
+Run the code:
+`$SPARK_HOME/sbin/start-master.sh`
+`$SPARK_HOME/sbin/start-worker.sh`
+
+SPARK_HOME/bin/spark-submit \
+    --master spark://localhost:7077 \
+    --py-files packages.zip \
+    --files configs/etl_config.json \
+    jobs/etl_job.py
